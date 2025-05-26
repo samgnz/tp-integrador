@@ -8,9 +8,9 @@ def digitos_unicos(dni):
     digitos_unicos = []
     
     for digito in dni:
-        digito_int = int(digito)
-        if digito_int not in digitos_unicos:
-            digitos_unicos.append(digito_int)
+        digito = int(digito)
+        if digito not in digitos_unicos:
+            digitos_unicos.append(digito)
     return digitos_unicos
 
 
