@@ -1,8 +1,8 @@
 #dnis
-dni1 = "39115153"
-dni2 = "12345567"
-dni3 = "89702134"
-dni4 = "12345678"
+dni1 = input("Ingrese su dni: ")
+dni2 = input("Ingrese su dni: ")
+dni3 = input("Ingrese su dni: ")
+dni4 = input("Ingrese su dni: ")
 
 def digitos_unicos(dni):
     digitos_unicos = []
@@ -92,10 +92,6 @@ def frecuencia_por_digito(dni):
             frecuencia[digito] = 1
     return frecuencia
 
-#print(frecuencia_por_digito(dni1))
-#print(frecuencia_por_digito(dni2))
-#print(frecuencia_por_digito(dni3))
-#print(frecuencia_por_digito(dni4))
 
 
 #suma todos los digitos
@@ -108,7 +104,7 @@ def suma(dni1,dni2,dni3,dni4):
         suma_total= digito + suma_total
     return suma_total
 
-#print(suma(dni1,dni2,dni3,dni4))
+
 
 
 #evaluacion de condiciones logicas
@@ -156,7 +152,78 @@ def diversidad_numerica(dni1, dni2, dni3, dni4):
     else:
         print("Hay una alta diversidad numérica")
     
-diversidad_numerica(dni1,dni2,dni3,dni4)
 
 
+# Parte B
 
+
+def año():
+    años_nacimientos=[]
+    for i in range (0,4):
+        años=input("Ingrese el año de su nacimiento: ")
+        años_nacimientos.append(años)    
+    return años_nacimientos
+
+    
+def pares_impares(lista_años):
+    años_nacimientos = list(map(int, lista_años))
+    pares=0
+    impares=0
+    for año in años_nacimientos:
+        if año % 2 == 0:
+            pares+=1
+        elif año % 2 == 1:
+            impares+=1
+        
+
+    print("La cantidad de años pares son:",pares)
+    print("La cantidad de años impares son",impares)
+
+
+def generacionZ (lista_años):
+    años_nacimientos = list(map(int, lista_años))
+    despues2000 = 0
+    
+    for año in años_nacimientos:
+        if año >= 2000:
+            despues2000 += 1
+    if despues2000 == 4:
+        print("Pertencen al grupo Z")
+    else:
+        print("No pertenecen al grupo Z")
+
+def deteminar_año_bisiesto(lista_años):
+    años_nacimientos = list(map(int, lista_años))
+    año_bisiesto = 0
+
+    for año in años_nacimientos:
+        if año % 4 == 0 and año % 100 != 0:
+            año_bisiesto += 1
+        elif año % 400 == 0:
+            año_bisiesto += 1
+    if año_bisiesto == 1:
+        print("Tenemos un año especial")
+    elif año_bisiesto > 1:
+        print("Tenemos varios años especiales")
+    else:
+        print("No hay años bisiestos")
+
+
+def calculo_edades(lista_años):
+    edades = []
+    años_nacimientos = list(map(int, lista_años))
+
+    for año in años_nacimientos:
+        edad = 2025 - año
+        edades.append(edad)
+    return edades
+    
+
+def producto_cartesiano(lista_años,lista_edades):
+    for año in lista_años:
+        for edad in lista_edades:
+            print(f"({año},{edad})") 
+
+años = año()
+edades = list(map(int, calculo_edades(años)))
+producto_cartesiano(años,edades)
